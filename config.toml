@@ -1,6 +1,6 @@
-baseURL = "https://workshop-sample.fcjuni.com/"
-relativeURLs = false
-canonifyURLs = false
+baseURL = "https://vc24902.github.io/Workshop-/"
+relativeURLs = true
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo
@@ -8,7 +8,7 @@ theme = "hugo-theme-learn"
 
 # For search functionality
 [outputs]
-home = [ "HTML", "RSS", "JSON"]
+home = ["HTML", "RSS", "JSON"]
 
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
@@ -20,7 +20,7 @@ home = [ "HTML", "RSS", "JSON"]
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
-  
+
 [Languages]
 [Languages.en]
 title = "Internship Report"
@@ -47,7 +47,7 @@ languageName = "Tiếng Việt"
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
 identifier = "AWS Study Group"
-url = "http://awsstudygroup.com"
+url = "https://awsstudygroup.com"
 weight = 20
 
 [[Languages.vi.menu.shortcuts]]
