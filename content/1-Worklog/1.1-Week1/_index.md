@@ -1,57 +1,65 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-12
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Become familiar with the internship environment and AWS Cloud fundamentals.
+* Understand Identity and Access Management (IAM) and user permission management.
+* Learn how to deploy and manage Amazon EC2 instances.
+* Understand the basics of Amazon VPC and network architecture.
+* Learn how to host a static website using Amazon S3.
+* Practice using IAM Role together with AWS CLI to access AWS resources securely.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------- | ----------------------------------------- |
+| 1 | - Attend internship orientation and understand the internship roadmap.<br>- Learn about AWS Cloud and common AWS service categories.<br>- Create IAM Group and IAM User.<br>- Assign AdministratorAccess policy and verify IAM login. | 12/04/2026 | 12/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 2 | - Learn Amazon EC2 fundamentals.<br>- Launch an Amazon Linux EC2 instance.<br>- Configure Security Group (SSH & HTTP).<br>- Connect to EC2 using SSH.<br>- Install Apache Web Server and deploy a simple web page. | 13/04/2026 | 13/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Learn Amazon VPC concepts.<br>- Create a custom VPC.<br>- Configure Public and Private Subnets.<br>- Attach Internet Gateway (IGW).<br>- Configure Route Tables and enable Public IPv4 assignment. | 14/04/2026 | 14/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Learn Amazon S3.<br>- Create an S3 Bucket.<br>- Upload website files.<br>- Configure Bucket Policy.<br>- Enable Static Website Hosting and verify website accessibility. | 15/04/2026 | 15/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Learn IAM Role and AWS CLI.<br>- Create IAM Role for EC2.<br>- Attach AmazonS3ReadOnlyAccess policy.<br>- Connect to EC2 using SSH.<br>- Practice AWS CLI commands to access AWS resources and understand IAM permissions. | 16/04/2026 | 16/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Became familiar with the internship environment, weekly learning objectives, and AWS Cloud fundamentals.
 
-* Successfully created and configured an AWS Free Tier account.
+* Understood the purpose of AWS Identity and Access Management (IAM), including:
+  * Creating IAM Groups and IAM Users.
+  * Assigning policies and managing permissions.
+  * Logging in securely using IAM accounts instead of the root account.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Successfully deployed an Amazon EC2 instance and learned how to:
+  * Configure Security Groups.
+  * Connect to EC2 via SSH.
+  * Install Apache Web Server.
+  * Deploy a simple website.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Gained a basic understanding of Amazon VPC networking, including:
+  * Creating a custom VPC.
+  * Configuring Public and Private Subnets.
+  * Attaching an Internet Gateway.
+  * Configuring Route Tables.
+  * Assigning Public IPv4 addresses.
 
-* Used AWS CLI to perform basic operations such as:
+* Successfully hosted a static website using Amazon S3 by:
+  * Creating an S3 Bucket.
+  * Uploading website files.
+  * Configuring Bucket Policy.
+  * Enabling Static Website Hosting.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Learned how IAM Role works together with AWS CLI:
+  * Created an IAM Role for EC2.
+  * Attached AmazonS3ReadOnlyAccess policy.
+  * Used AWS CLI to interact with AWS services.
+  * Successfully listed S3 Buckets.
+  * Understood AccessDenied errors caused by insufficient IAM permissions.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Improved practical experience working with core AWS services including IAM, EC2, VPC, S3, and AWS CLI through hands-on laboratory exercises.
+
+* Developed a better understanding of AWS security best practices by separating user permissions through IAM Users, IAM Roles, and Policies instead of using the root account.
