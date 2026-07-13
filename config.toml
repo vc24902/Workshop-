@@ -17,7 +17,7 @@ home = ["HTML", "RSS", "JSON"]
   editURL = ""
   description = ""
   author = "thienlh@thienlu.com"
-  showVisitedLinks = true
+  showVisitedLinks = false
   disableBreadcrumb = false
   disableNextPrev = false
 
