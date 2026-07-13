@@ -1,58 +1,56 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-17
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu AWS Systems Manager.
+* Tìm hiểu Session Manager.
+* Tìm hiểu Parameter Store.
+* Tìm hiểu Resource Tagging.
+* Tìm hiểu VM Import / Export.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
+| 2 | - Tìm hiểu AWS Systems Manager.<br>- Tìm hiểu SSM Agent và Managed Instances.<br>- Tìm hiểu các tính năng của Systems Manager. | 17/05/2026 | 17/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Thực hành AWS Systems Manager.<br>- Khám phá giao diện Systems Manager.<br>- Tìm hiểu các công cụ quản lý. | 18/05/2026 | 18/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tìm hiểu Session Manager.<br>- So sánh Session Manager với SSH.<br>- Tìm hiểu truy cập EC2 an toàn. | 19/05/2026 | 19/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Tìm hiểu Parameter Store.<br>- Tìm hiểu các loại Parameter.<br>- Tìm hiểu lưu trữ cấu hình an toàn. | 20/05/2026 | 20/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Tìm hiểu Resource Tagging.<br>- Tìm hiểu chiến lược gắn thẻ.<br>- Tổ chức tài nguyên AWS. | 21/05/2026 | 21/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 7 | - Tìm hiểu VM Import / Export.<br>- Tìm hiểu các khái niệm Migration.<br>- Tìm hiểu quy trình di chuyển. | 22/05/2026 | 22/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| CN | - Ôn tập kiến thức trong tuần.<br>- Tổng hợp các dịch vụ Systems Manager.<br>- Sắp xếp ghi chú học tập. | 23/05/2026 | 23/05/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu AWS Systems Manager:
+  * SSM Agent.
+  * Managed Instances.
+  * Các tính năng của Systems Manager.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tìm hiểu Session Manager:
+  * Truy cập EC2 an toàn.
+  * Kết nối qua trình duyệt.
+  * Ghi nhật ký phiên làm việc.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu Parameter Store:
+  * Các loại Parameter.
+  * Secure String.
+  * Quản lý cấu hình.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Tìm hiểu Resource Tagging:
+  * Các loại Tag.
+  * Tổ chức tài nguyên.
+  * Phân bổ chi phí.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Tìm hiểu VM Import / Export:
+  * Các khái niệm Migration.
+  * Quy trình di chuyển.
+  * Các nền tảng được hỗ trợ.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Củng cố kiến thức về quản lý EC2 và các dịch vụ Migration trên AWS.

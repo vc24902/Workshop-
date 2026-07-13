@@ -1,59 +1,63 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-04-19
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu bảo mật Amazon S3 và Bucket Policy.
+* Thực hành IAM Role và AWS CLI.
+* Tìm hiểu EC2 User Data.
+* Tìm hiểu Amazon RDS MySQL.
+* Kết nối EC2 với Amazon RDS.
+* Triển khai ứng dụng web đơn giản trên AWS.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | --------------- | ----------------------------------------- |
+| 2 | - Tìm hiểu Amazon S3 Policy.<br>- Tạo S3 Bucket.<br>- Cấu hình Bucket Policy.<br>- Kiểm tra truy cập công khai. | 19/04/2026 | 19/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Tìm hiểu IAM Role.<br>- Gán IAM Role cho EC2.<br>- Kiểm tra truy cập Amazon S3 bằng AWS CLI. | 20/04/2026 | 20/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tìm hiểu EC2 User Data.<br>- Khởi tạo EC2 với User Data.<br>- Tự động cài Apache.<br>- Triển khai trang web đơn giản. | 21/04/2026 | 21/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Cấu hình AWS CLI.<br>- Tìm hiểu IAM Deny Policy.<br>- Kiểm tra quyền tải tệp lên Amazon S3. | 22/04/2026 | 22/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Tạo Amazon RDS MySQL.<br>- Cấu hình Security Group.<br>- Kết nối EC2 với RDS.<br>- Kiểm tra kết nối cơ sở dữ liệu. | 23/04/2026 | 23/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 7 | - Cài đặt Apache và PHP.<br>- Kết nối ứng dụng PHP với Amazon RDS.<br>- Triển khai ứng dụng web trên EC2. | 24/04/2026 | 24/04/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Tìm hiểu bảo mật Amazon S3:
+  * Bucket Policy.
+  * Block Public Access.
+  * Quyền truy cập công khai.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thực hành IAM Role:
+  * Tạo IAM Role.
+  * Gán Role cho EC2.
+  * Truy cập Amazon S3 bằng AWS CLI.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tìm hiểu EC2 User Data:
+  * Khởi tạo EC2 với User Data.
+  * Tự động cài Apache.
+  * Triển khai trang web.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Thực hành AWS CLI:
+  * Cấu hình AWS CLI.
+  * Xác minh IAM User.
+  * Tải tệp lên Amazon S3.
+  * Hiểu IAM Deny Policy.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Tìm hiểu Amazon RDS:
+  * Tạo cơ sở dữ liệu MySQL.
+  * Cấu hình Security Group.
+  * Kết nối EC2 với RDS.
+  * Kiểm tra kết nối cơ sở dữ liệu.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Triển khai ứng dụng web:
+  * Cài Apache và PHP.
+  * Kết nối PHP với Amazon RDS.
+  * Truy cập ứng dụng qua Public IP.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nâng cao kỹ năng thực hành với Amazon S3, IAM, EC2, AWS CLI và Amazon RDS.

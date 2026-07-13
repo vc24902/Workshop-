@@ -1,59 +1,59 @@
 ---
 title: "Worklog Tuần 3"
-date: 2024-01-01
-weight: 1
+date: 2026-04-26
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 3:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu bảo mật mạng trên AWS.
+* Thực hành Security Groups.
+* Tìm hiểu Network ACL (NACL).
+* Tìm hiểu Amazon VPC Flow Logs.
+* Tìm hiểu DNS và Amazon Route 53.
+* Tìm hiểu VPC Peering.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | --------------- | ----------------------------------------- |
+| 2 | - Tìm hiểu Security Groups.<br>- Tìm hiểu Inbound và Outbound Rules.<br>- Tìm hiểu các giao thức mạng phổ biến. | 26/04/2026 | 26/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Thực hành Security Groups.<br>- Tạo và chỉnh sửa Security Groups.<br>- Kiểm tra truy cập SSH và HTTP. | 27/04/2026 | 27/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tìm hiểu Network ACL (NACL).<br>- So sánh NACL với Security Groups.<br>- Tìm hiểu bảo vệ Subnet. | 28/04/2026 | 28/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Tìm hiểu Amazon VPC Flow Logs.<br>- Giám sát lưu lượng mạng.<br>- Xem lưu lượng được chấp nhận và bị từ chối. | 29/04/2026 | 29/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Tìm hiểu kiến thức cơ bản về DNS.<br>- Tìm hiểu Amazon Route 53.<br>- Xem các loại bản ghi DNS. | 30/04/2026 | 30/04/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 7 | - Tìm hiểu VPC Peering.<br>- Tìm hiểu kết nối giữa các VPC.<br>- Tìm hiểu yêu cầu định tuyến. | 01/05/2026 | 01/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| CN | - Ôn tập kiến thức trong tuần.<br>- Tổng hợp kiến thức mạng.<br>- Sắp xếp ghi chú học tập. | 02/05/2026 | 02/05/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 3:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Tìm hiểu Security Groups:
+  * Inbound Rules.
+  * Outbound Rules.
+  * Các giao thức mạng phổ biến.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Thực hành Security Groups:
+  * Tạo và chỉnh sửa Security Groups.
+  * Cấu hình truy cập SSH và HTTP.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tìm hiểu Network ACL:
+  * So sánh với Security Groups.
+  * Hiểu cách bảo vệ Subnet.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu Amazon VPC Flow Logs:
+  * Giám sát lưu lượng mạng.
+  * Phân tích nhật ký lưu lượng.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Tìm hiểu DNS và Amazon Route 53:
+  * Kiến thức cơ bản về DNS.
+  * Các loại bản ghi DNS.
+  * Hosted Zone.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Tìm hiểu VPC Peering:
+  * Kết nối nhiều VPC.
+  * Cấu hình định tuyến.
+  * Các trường hợp sử dụng phổ biến.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Củng cố kiến thức về mạng và bảo mật trên AWS.

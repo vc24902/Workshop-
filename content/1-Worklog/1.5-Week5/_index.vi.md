@@ -1,59 +1,67 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
-weight: 1
+date: 2026-05-10
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Amazon CloudWatch.
+* Tìm hiểu CloudWatch Metrics.
+* Tìm hiểu CloudWatch Logs.
+* Tìm hiểu CloudWatch Alarms.
+* Tìm hiểu CloudWatch Dashboard.
+* Tìm hiểu AWS Cost Explorer.
+* Tìm hiểu AWS Service Quotas.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | --------------- | ----------------------------------------- |
+| 2 | - Tìm hiểu Amazon CloudWatch.<br>- Tìm hiểu các khái niệm giám sát.<br>- Tìm hiểu các tính năng của CloudWatch. | 10/05/2026 | 10/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 3 | - Tìm hiểu CloudWatch Metrics.<br>- Giám sát Metrics của EC2.<br>- Xem CPU và Network Usage. | 11/05/2026 | 11/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 4 | - Tìm hiểu CloudWatch Logs.<br>- Tìm hiểu Log Groups và Log Streams.<br>- Tìm hiểu quản lý Logs. | 12/05/2026 | 12/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 5 | - Tìm hiểu CloudWatch Alarms.<br>- Tìm hiểu các trạng thái Alarm.<br>- Tìm hiểu thông báo giám sát. | 13/05/2026 | 13/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 6 | - Tìm hiểu CloudWatch Dashboard.<br>- Tìm hiểu Dashboard Widgets.<br>- Tìm hiểu hiển thị Metrics. | 14/05/2026 | 14/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| 7 | - Tìm hiểu AWS Cost Explorer.<br>- Tìm hiểu Billing Dashboard.<br>- Tìm hiểu quản lý chi phí. | 15/05/2026 | 15/05/2026 | https://cloudjourney.awsstudygroup.com/ |
+| CN | - Tìm hiểu AWS Service Quotas.<br>- Tìm hiểu giới hạn dịch vụ.<br>- Ôn tập kiến thức trong tuần. | 16/05/2026 | 16/05/2026 | https://cloudjourney.awsstudygroup.com/ |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Tìm hiểu Amazon CloudWatch:
+  * Khái niệm giám sát.
+  * Các tính năng của CloudWatch.
+  * Giám sát tài nguyên.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Tìm hiểu CloudWatch Metrics:
+  * CPU Utilization.
+  * Network Usage.
+  * Metrics của tài nguyên.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tìm hiểu CloudWatch Logs:
+  * Log Groups.
+  * Log Streams.
+  * Quản lý Logs.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Tìm hiểu CloudWatch Alarms:
+  * Trạng thái Alarm.
+  * Giá trị Threshold.
+  * Notifications.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Tìm hiểu CloudWatch Dashboard:
+  * Dashboard Widgets.
+  * Hiển thị Metrics.
+  * Dashboard giám sát.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* Tìm hiểu AWS Cost Explorer:
+  * Billing Dashboard.
+  * Báo cáo chi phí.
+  * Quản lý chi phí.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tìm hiểu AWS Service Quotas:
+  * Giới hạn dịch vụ.
+  * Quản lý Service Quotas.
 
-
+* Củng cố kiến thức về giám sát và quản lý chi phí trên AWS.
