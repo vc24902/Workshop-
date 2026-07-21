@@ -1,108 +1,271 @@
 ---
 title: "Bản đề xuất"
-date: 2024-01-01
+date: 2026-01-01
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Nền tảng Mua bán Đồ cũ
+## Nền tảng Mua bán Đồ cũ Cloud-Native trên AWS
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+## 1. Tóm tắt điều hành
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+Nền tảng Mua bán Đồ cũ là một ứng dụng web dựa trên nền tảng đám mây cho phép người dùng mua và bán các sản phẩm đã qua sử dụng thông qua một sàn giao dịch trực tuyến tập trung. Hệ thống cung cấp xác thực người dùng, quản lý sản phẩm, tải lên hình ảnh, tìm kiếm và quản lý danh mục, đồng thời sử dụng các dịch vụ đám mây AWS để đảm bảo khả năng mở rộng, tính sẵn sàng và đơn giản hóa việc triển khai.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Ứng dụng được phát triển bằng **Node.js**, **Express.js**, **MongoDB Atlas** và **EJS**, trong khi hạ tầng được triển khai trên **Amazon ECS Fargate** phía sau **Application Load Balancer**. Các Docker container được lưu trữ trong **Amazon ECR**, hình ảnh sản phẩm được lưu trữ trong **Amazon S3**, và **AWS CodeBuild** tự động xây dựng và triển khai ứng dụng mỗi khi mã nguồn mới được đẩy lên GitHub. Kiến trúc này cung cấp khả năng triển khai tự động, lưu trữ tập trung và hạ tầng đám mây tối ưu chi phí, phù hợp với các ứng dụng thương mại điện tử quy mô nhỏ và vừa.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+---
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+# 2. Tuyên bố vấn đề
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+### Vấn đề hiện tại
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+Nhiều nền tảng mua bán đồ cũ dựa vào các nền tảng mạng xã hội hoặc các trang web được quản lý thủ công, khiến việc quản lý sản phẩm trở nên kém hiệu quả và khó bảo trì. Hình ảnh thường được lưu trữ cục bộ, việc triển khai yêu cầu cập nhật thủ công và việc mở rộng hệ thống trở nên khó khăn khi số lượng người dùng tăng lên. Phương pháp triển khai truyền thống cũng làm tăng thời gian gián đoạn và khối lượng công việc vận hành mỗi khi phát hành tính năng mới hoặc sửa lỗi.
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+### Giải pháp
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+Giải pháp được đề xuất xây dựng một nền tảng mua bán đồ cũ cloud-native sử dụng các dịch vụ được quản lý của AWS.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+Người dùng có thể đăng ký tài khoản, đăng nhập an toàn, tải lên sản phẩm kèm hình ảnh, duyệt sản phẩm theo danh mục, tìm kiếm sản phẩm và quản lý các tin đăng của mình thông qua một ứng dụng web. Thông tin sản phẩm được lưu trữ trong MongoDB Atlas, trong khi hình ảnh sản phẩm được tải lên sẽ được lưu trữ trong Amazon S3.
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+Ứng dụng được đóng gói bằng Docker và triển khai trên Amazon ECS Fargate. AWS CodeBuild tự động phát hiện các lần commit mới từ GitHub, xây dựng Docker image, đẩy image lên Amazon ECR và kích hoạt Amazon ECS triển khai phiên bản mới nhất mà không cần can thiệp thủ công.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+### Lợi ích và hoàn vốn đầu tư
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+Nền tảng giúp giảm đáng kể thời gian triển khai thông qua quy trình CI/CD tự động, đồng thời cải thiện khả năng mở rộng và độ tin cậy của hệ thống. Các lập trình viên chỉ cần đẩy mã nguồn lên GitHub và toàn bộ quy trình triển khai sẽ được thực hiện tự động. Kiến trúc đám mây cũng giảm thiểu công việc quản lý máy chủ và tạo nền tảng vững chắc cho việc mở rộng trong tương lai. Trong quá trình phát triển, AWS Free Tier và AWS Academy Credits giúp giảm chi phí vận hành.
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+---
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+# 3. Kiến trúc giải pháp
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+Ứng dụng tuân theo kiến trúc container cloud-native sử dụng các dịch vụ được quản lý của AWS.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+## Kiến trúc giải pháp
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+![System Architecture](/images/2-Proposal/system_architecture.png)
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+### Các dịch vụ AWS được sử dụng
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+- **Amazon ECS Fargate** – Chạy các Docker container mà không cần quản lý máy chủ.
+- **Amazon ECR** – Lưu trữ các Docker image được sử dụng bởi ECS.
+- **AWS CodeBuild** – Tự động xây dựng và triển khai các phiên bản ứng dụng mới từ GitHub.
+- **Application Load Balancer (ALB)** – Phân phối các yêu cầu HTTP đến các ECS Task.
+- **Amazon S3** – Lưu trữ hình ảnh sản phẩm được tải lên.
+- **MongoDB Atlas** – Lưu trữ dữ liệu của ứng dụng bao gồm người dùng, sản phẩm và danh mục.
+- **AWS IAM** – Quản lý quyền truy cập đối với các tài nguyên AWS.
+- **Amazon CloudWatch** – Thu thập nhật ký ứng dụng và thông tin giám sát.
+
+### Thiết kế thành phần
+
+**Giao diện người dùng**
+
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- EJS Template Engine
+
+**Phần phụ trợ**
+
+- Node.js
+- Express.js
+- Express Session
+- Multer
+- AWS SDK for JavaScript
+
+**Cơ sở dữ liệu**
+
+- MongoDB Atlas
+
+**Lưu trữ hình ảnh**
+
+- Amazon S3
+
+**Nền tảng Container**
+
+- Docker
+- Amazon ECS Fargate
+
+**Quy trình triển khai**
+
+- GitHub
+- AWS CodeBuild
+- Amazon ECR
+- Amazon ECS
+---
+
+# 4. Triển khai kỹ thuật
+
+## Các giai đoạn triển khai
+
+Dự án được triển khai thông qua các giai đoạn sau:
+
+- Nghiên cứu kiến trúc đám mây AWS và chiến lược triển khai.
+- Thiết kế kiến trúc tổng thể của hệ thống sàn giao dịch.
+- Phát triển phần phụ trợ bằng Node.js và Express.js.
+- Cấu hình MongoDB Atlas để lưu trữ cơ sở dữ liệu trên nền tảng đám mây.
+- Tích hợp Amazon S3 để lưu trữ hình ảnh sản phẩm.
+- Đóng gói ứng dụng bằng Docker.
+- Đẩy Docker image lên Amazon ECR.
+- Triển khai Docker container trên Amazon ECS Fargate.
+- Cấu hình Application Load Balancer.
+- Triển khai Continuous Integration và Continuous Deployment bằng GitHub và AWS CodeBuild.
+- Thực hiện kiểm thử, tối ưu hóa và triển khai lên môi trường thực tế.
+
+## Yêu cầu kỹ thuật
+
+### Ngôn ngữ lập trình
+
+- JavaScript
+- HTML
+- CSS
+
+### Framework
+
+- Express.js
+- EJS
+
+### Cơ sở dữ liệu
+
+- MongoDB Atlas
+
+### Dịch vụ đám mây
+
+- Amazon ECS Fargate
+- Amazon ECR
+- Amazon S3
+- AWS CodeBuild
+- Application Load Balancer
+- Amazon CloudWatch
+- AWS IAM
+
+### Công cụ phát triển
+
+- Visual Studio Code
+- Git
+- GitHub
+- Docker Desktop
+- MongoDB Compass
+
+---
+
+# 5. Lộ trình & Mốc triển khai
+
+### Tuần 1
+
+- Phân tích yêu cầu.
+- Lập kế hoạch kiến trúc AWS.
+- Thiết kế cơ sở dữ liệu.
+
+### Tuần 2
+
+- Xác thực người dùng.
+- CRUD sản phẩm.
+- Quản lý danh mục.
+
+### Tuần 3
+
+- Tích hợp MongoDB Atlas.
+- Tích hợp Amazon S3.
+- Tải lên hình ảnh sản phẩm.
+
+### Tuần 4
+
+- Đóng gói ứng dụng bằng Docker.
+- Cấu hình Amazon ECR.
+
+### Tuần 5
+
+- Triển khai Amazon ECS.
+- Cấu hình Application Load Balancer.
+
+### Tuần 6
+
+- Tích hợp GitHub.
+- Cấu hình AWS CodeBuild.
+- Quy trình triển khai tự động.
+
+### Tuần 7
+
+- Kiểm thử.
+- Sửa lỗi.
+- Tối ưu hiệu năng.
+
+### Tuần 8
+
+- Triển khai cuối cùng.
+- Tài liệu.
+- Trình bày dự án.
+
+---
+
+# 6. Ước tính ngân sách
+
+## Ước tính chi phí hạ tầng
+
+| Dịch vụ AWS | Chi phí ước tính |
+|-------------|------------------|
+| Amazon ECS Fargate | AWS Free Tier / AWS Academy Credits |
+| Amazon ECR | Tối thiểu |
+| Amazon S3 | Thấp |
+| AWS CodeBuild | AWS Free Tier |
+| Application Load Balancer | Thấp |
+| Amazon CloudWatch | Tối thiểu |
+
+### Chi phí phát triển ước tính
+
+Dự án sử dụng AWS Free Tier và AWS Academy Credits trong quá trình phát triển, giúp giảm thiểu chi phí hạ tầng đồng thời vẫn cung cấp một môi trường đám mây sẵn sàng cho môi trường thực tế.
+
+### Hướng dẫn kiểm soát chi phí
+
+- Cấu hình AWS Budgets để nhận cảnh báo chi phí.
+- Xóa các ECS Task không còn sử dụng.
+- Xóa các Docker image không còn sử dụng trong Amazon ECR.
+- Cấu hình Lifecycle Rules cho Amazon S3.
+- Theo dõi các chỉ số CloudWatch thường xuyên.
+
+---
+
+# 7. Đánh giá rủi ro
+
+## Ma trận rủi ro
+
+- Triển khai ECS thất bại.
+- Sự cố kết nối MongoDB Atlas.
+- Lỗi tải lên Amazon S3.
+- Chi phí dịch vụ AWS phát sinh ngoài dự kiến.
+
+## Chiến lược giảm thiểu
+
+- Kích hoạt giám sát bằng Amazon CloudWatch.
+- Cấu hình cảnh báo AWS Budgets.
+- Quản lý phiên bản Docker image bằng Amazon ECR.
+- Thực hiện sao lưu MongoDB Atlas định kỳ.
+- Áp dụng nguyên tắc phân quyền tối thiểu (Least Privilege) của IAM.
+
+## Kế hoạch dự phòng
+
+- Quay lại Docker image trước đó.
+- Triển khai lại ECS Task Definition trước đó.
+- Khôi phục bản sao lưu MongoDB Atlas.
+- Triển khai lại thông qua AWS CodeBuild.
+
+---
+
+# 8. Kết quả kỳ vọng
+
+## Kết quả kỹ thuật
+
+Dự án hoàn thành sẽ cung cấp:
+
+- Một nền tảng mua bán đồ cũ cloud-native được đóng gói hoàn toàn bằng container.
+- Quy trình triển khai CI/CD tự động sử dụng GitHub và AWS CodeBuild.
+- Hệ thống lưu trữ hình ảnh đáng tin cậy sử dụng Amazon S3.
+- Khả năng triển khai container có thể mở rộng bằng Amazon ECS Fargate.
+- Cơ sở dữ liệu tập trung trên nền tảng đám mây sử dụng MongoDB Atlas.
+- Kiến trúc đám mây sẵn sàng cho môi trường thực tế với cân bằng tải.
+
+## Giá trị kinh doanh
+
+Nền tảng thể hiện việc triển khai thực tế các công nghệ điện toán đám mây, container hóa và DevOps bằng các dịch vụ được quản lý của AWS. Kiến trúc có thể được mở rộng trong tương lai để hỗ trợ cổng thanh toán, hệ thống gợi ý, dịch vụ thông báo, phân tích dữ liệu và phát triển theo kiến trúc microservices, đồng thời vẫn duy trì khả năng mở rộng và hiệu quả vận hành.
